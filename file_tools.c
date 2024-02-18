@@ -1,12 +1,13 @@
 #include "monty.h"
 
-stack_t *stack_head = NULL; // Renaming 'head' to 'stack_head'
+stack_t *stack_head = NULL;
 
 /**
  * open_data_file - opens a file
  * @file_path: the file path
  * Return: void
  */
+
 void open_data_file(char *file_path)
 {
 	FILE *file_descriptor = fopen(file_path, "r");
@@ -18,11 +19,13 @@ void open_data_file(char *file_path)
 	fclose(file_descriptor);
 }
 
+
 /**
  * read_data_file - reads a file
  * @file_descriptor: pointer to file descriptor
  * Return: void
  */
+
 void read_data_file(FILE *file_descriptor)
 {
 	int line_num, format = 0;
@@ -36,6 +39,7 @@ void read_data_file(FILE *file_descriptor)
 	free(line);
 }
 
+
 /**
  * parse_line - Separates each line into tokens to determine
  * which function to call
@@ -45,6 +49,7 @@ void read_data_file(FILE *file_descriptor)
  * if 1 nodes will be entered as a queue.
  * Return: Returns 0 if the opcode is stack. 1 if queue.
  */
+
 int parse_line(char *line, int line_num, int format)
 {
 	char *opcode, *argument;
@@ -114,6 +119,7 @@ void find_command(char *opcode, char *argument, int line_num, int format)
 	if (flag == 1)
 		troubleshooter(3, line_num, opcode);
 }
+
 
 /**
  * call_command - Calls the required function.
